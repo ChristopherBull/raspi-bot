@@ -20,7 +20,7 @@ let server: dgram.Socket | undefined;
  * Disables Discoverable Mode on this device.
  */
 export async function disable(): Promise<void> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (server === undefined) {
       console.debug('UDP Discovery - Disabled (was not running)');
       resolve();

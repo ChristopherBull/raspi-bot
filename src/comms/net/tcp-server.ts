@@ -10,7 +10,7 @@ let server: net.Server | undefined;
  * Close TCP Server
  */
 export async function close(): Promise<void> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (server === undefined) {
       console.debug('TCP Server - Closed (already)');
       resolve();
@@ -28,7 +28,7 @@ export async function close(): Promise<void> {
  * Start the TCP Server.
  */
 export async function start(): Promise<void> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (server === undefined) {
       server = net.createServer((socket: net.Socket) => {
         // On client connection

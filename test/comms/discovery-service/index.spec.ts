@@ -4,36 +4,36 @@ import Discovery = require('../../../src/comms/discovery-service');
 import net = require('net');
 import dgram = require('dgram');
 
-describe('Discovery Service', function() {
-  beforeEach(async function() {
+describe('Discovery Service', function () {
+  beforeEach(async function () {
     await Discovery.disable();
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await Discovery.disable();
   });
 
-  it('should disable cleanly when not already enabled', async function() {
+  it('should disable cleanly when not already enabled', async function () {
     // Discovery.disable(); will already have run in `beforeEach()`
     await Discovery.disable();
     const enabled = Discovery.isEnabled();
     expect(enabled).to.equal(false);
   });
 
-  it('should enable', function() {
+  it('should enable', function () {
     Discovery.enable();
     const enabled = Discovery.isEnabled();
     expect(enabled).to.equal(true);
   });
 
-  it('should disable immediately after enabling', async function() {
+  it('should disable immediately after enabling', async function () {
     Discovery.enable();
     await Discovery.disable();
     const enabled = Discovery.isEnabled();
     expect(enabled).to.equal(false);
   });
 
-  it('should silently skip consecutive enable', async function() {
+  it('should silently skip consecutive enable', async function () {
     Discovery.enable();
     // Enable 2nd consecutive time
     expect(() => {
@@ -41,7 +41,7 @@ describe('Discovery Service', function() {
     }).to.not.throw;
   });
 
-  it('should respond to a Discovery UDP broadcast message', function(done) {
+  it('should respond to a Discovery UDP broadcast message', function (done) {
     Discovery.enable();
 
     // Create TCP server to receive a response from any discovered services
@@ -58,7 +58,7 @@ describe('Discovery Service', function() {
       server.close();
     }, iTimeout);
     // Get client IP address from connection
-    server.on('connection', socket => {
+    server.on('connection', (socket) => {
       expect(socket).to.not.be.null;
       console.debug('Connection from: ' + socket.remoteAddress);
       clearTimeout(timeoutObj);

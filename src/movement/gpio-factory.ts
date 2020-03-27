@@ -43,7 +43,7 @@ export class MockGPIO implements Gpio {
   read(callback: ValueCallback): void;
   read(): Promise<BinaryValue>;
   read(callback?: ValueCallback): Promise<BinaryValue> | void {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       if (callback !== undefined) {
         callback(null, this._value);
       }
@@ -64,7 +64,7 @@ export class MockGPIO implements Gpio {
     value: BinaryValue,
     callback?: (err: Error | null | undefined) => void,
   ): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this._value = value;
       if (callback !== undefined) {
         callback(null);
