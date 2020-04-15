@@ -41,6 +41,7 @@ typings/
 
 # TypeScript output directory
 dist
+build-cache
 
 # Optional npm cache directory
 .npm
