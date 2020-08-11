@@ -32,6 +32,12 @@ jobs:
             ${{ runner.OS }}-
       - name: Install dependencies
         run: npm ci
+      - name: Build (Transpile TypeScript)
+        # Unless code coverage is 100%, tests (using ts-node, a runtime
+        # interpretation engine) can not guarantee untouched code is not broken.
+        # Transpile the TypeScript to ensure it is all at least valid TypeScript.
+        run: npm run transpile
+      # Test
       - name: Lint and test
         run: npm run test:ci
       - name: Upload coverage to Code-Climate
