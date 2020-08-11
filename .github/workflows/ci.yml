@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Lint and test
-        run: npm test:ci
+        run: npm run test:ci
       - name: Upload coverage to Code-Climate
         uses: paambaati/codeclimate-action@v2.6.0
         env:
