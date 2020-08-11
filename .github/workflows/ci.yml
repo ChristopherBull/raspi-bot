@@ -1,0 +1,49 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.gitignore"
+      - "**.md"
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - "**.gitignore"
+      - "**.md"
+
+jobs:
+  test:
+    name: Lint, test, coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm 
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint and test
+        run: npm test:ci
+      - name: Upload coverage to Code-Climate
+        uses: paambaati/codeclimate-action@v2.6.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: echo "Coverage already calculated - skipping calculating coverage"
+          coverageLocations: ${{github.workspace}}/coverage/lcov.info:lcov
+      # Artifacts
+      - name: Upload coverage report artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: coverage
