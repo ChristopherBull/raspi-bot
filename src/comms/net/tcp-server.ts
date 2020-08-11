@@ -8,6 +8,8 @@ let server: net.Server | undefined;
 
 /**
  * Close TCP Server
+ *
+ * @returns {Promise<void>}
  */
 export async function close(): Promise<void> {
   return new Promise((resolve) => {
@@ -26,6 +28,8 @@ export async function close(): Promise<void> {
 
 /**
  * Start the TCP Server.
+ *
+ * @returns {Promise<void>}
  */
 export async function start(): Promise<void> {
   return new Promise((resolve) => {

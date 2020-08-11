@@ -114,15 +114,27 @@ export class MockGPIO implements Gpio {
   }
 }
 
+/**
+ * Prepares the GPIO library. If GPIO is inaccessible (i.e., not running on a
+ * device with GPIO), it loads a MockGpio library, for testing.
+ *
+ * @returns {Gpio|any} The GPIO type.
+ */
 export function create(): Gpio | any {
-    if (Gpio.accessible) {
-      return Gpio;
-    } else {
+  if (Gpio.accessible) {
+    return Gpio;
+  } else {
     console.warn('Using mock Gpio: GPIO inaccessible');
     return MockGPIO;
   }
 }
 
+/**
+ * Writes a given value to each of the specified GPIO pins.
+ *
+ * @param {BinaryValue} value The value to write.
+ * @param {Gpio[]} pins The GPIO pins to write to.
+ */
 export function writeSyncMultiplePins(
   value: BinaryValue,
   ...pins: Gpio[]

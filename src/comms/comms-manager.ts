@@ -36,6 +36,8 @@ export enum CommunicationType {
 
 /**
  * Starts the TCP server.
+ *
+ * @returns {Promise<void>}
  */
 async function startTCPServer(): Promise<void> {
   console.debug('TCP Server - starting');
@@ -44,6 +46,8 @@ async function startTCPServer(): Promise<void> {
 
 /**
  * Stops the UDP server.
+ *
+ * @returns {Promise<void>}
  */
 async function stopTCPServer(): Promise<void> {
   console.debug('TCP Server - stopping');
@@ -81,6 +85,7 @@ export function startDiscoveryService(): void {
  * Disables the Discovery Service.
  *
  * @see Discovery.disable()
+ * @returns {Promise<void>}
  */
 export async function stopDiscoveryService(): Promise<void> {
   return Discovery.disable();

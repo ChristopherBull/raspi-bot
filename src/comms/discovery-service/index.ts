@@ -18,6 +18,8 @@ let server: dgram.Socket | undefined;
 
 /**
  * Disables Discoverable Mode on this device.
+ *
+ * @returns {Promise<void>}
  */
 export async function disable(): Promise<void> {
   return new Promise((resolve) => {
