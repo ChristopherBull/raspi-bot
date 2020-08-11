@@ -1,7 +1,7 @@
 import 'mocha';
 import { expect } from 'chai';
 import index = require('../src/index');
-import Comms = require('../src/comms/comms-manager');
+import Comms = require('../src/comms/communication-manager');
 
 describe('Program entry point', function () {
   after(function () {

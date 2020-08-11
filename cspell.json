@@ -8,8 +8,10 @@
     "words": [
         // Packages, libraries, technologies
         "bluetooth",
-        "unexport", // onoff package
+        "comms", // Short-hand for "Communications"
         "multiline", // ESLint
+        "RPiBot", // Project synonym
+        "unexport", // onoff package
         // Missing correct English words
         "cleanup",
         "discoverability",

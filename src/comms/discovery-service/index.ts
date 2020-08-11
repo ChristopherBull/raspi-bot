@@ -12,7 +12,7 @@ export const PORT_TCP_RESPONSE = getStrAsNumberOrDefault(
   process.env.RPIBOT_RESPONSE_PORT,
   8090,
 );
-export const MSG_DISCOVER_ADDR = 'DISCOVER_PIBOT_ADDR';
+export const MSG_DISCOVER_ADDR = 'DISCOVER_RPIBOT_ADDR';
 
 let server: dgram.Socket | undefined;
 

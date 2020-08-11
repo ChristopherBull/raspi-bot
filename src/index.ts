@@ -1,4 +1,4 @@
-import Comms = require('./comms/comms-manager');
+import Comms = require('./comms/communication-manager');
 import Movement = require('./movement/movement-manager');
 
 /**

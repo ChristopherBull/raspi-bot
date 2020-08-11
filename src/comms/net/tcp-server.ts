@@ -1,4 +1,4 @@
-import CommunicationManager = require('../comms-manager');
+import CommunicationManager = require('../communication-manager');
 import net = require('net');
 
 const HOSTNAME = 'localhost';

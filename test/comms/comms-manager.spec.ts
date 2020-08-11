@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import CommunicationManager = require('../../src/comms/comms-manager');
+import CommunicationManager = require('../../src/comms/communication-manager');
 import Discovery = require('../../src/comms/discovery-service');
 import TCP = require('../../src/comms/net/tcp-server');
 
