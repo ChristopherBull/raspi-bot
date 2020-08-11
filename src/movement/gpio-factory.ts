@@ -115,19 +115,18 @@ export class MockGPIO implements Gpio {
 }
 
 export function create(): Gpio | any {
-  try {
     if (Gpio.accessible) {
       return Gpio;
     } else {
-      throw new Error('GPIO inaccessible');
-    }
-  } catch (err) {
-    console.warn(`Using mock Gpio. Reason = ${err}`);
+    console.warn('Using mock Gpio: GPIO inaccessible');
     return MockGPIO;
   }
 }
 
-export function writeMultiplePins(value: BinaryValue, ...pins: Gpio[]): void {
+export function writeSyncMultiplePins(
+  value: BinaryValue,
+  ...pins: Gpio[]
+): void {
   for (const pin of pins) {
     pin.writeSync(value);
   }

@@ -35,7 +35,7 @@ export class DCMotor implements Motor {
 
   stop(): void {
     // Disable the motor first to maximise conserved power.
-    GpioFactory.writeMultiplePins(
+    GpioFactory.writeSyncMultiplePins(
       0,
       this.gpioPinEn,
       this.gpioPinA,
@@ -46,13 +46,13 @@ export class DCMotor implements Motor {
 
   clockwise(): void {
     this.gpioPinB.writeSync(0);
-    GpioFactory.writeMultiplePins(1, this.gpioPinA, this.gpioPinEn);
+    GpioFactory.writeSyncMultiplePins(1, this.gpioPinA, this.gpioPinEn);
     this.currentMotionType = MotorMotionType.Clockwise;
   }
 
   counterClockwise(): void {
     this.gpioPinA.writeSync(0);
-    GpioFactory.writeMultiplePins(1, this.gpioPinB, this.gpioPinEn);
+    GpioFactory.writeSyncMultiplePins(1, this.gpioPinB, this.gpioPinEn);
     this.currentMotionType = MotorMotionType.CounterClockwise;
   }
 }

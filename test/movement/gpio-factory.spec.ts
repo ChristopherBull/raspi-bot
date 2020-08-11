@@ -58,14 +58,14 @@ describe('GPIO Factory', function () {
       const pin3 = new GpioFactory.MockGPIO(3, 'out');
       const pin4 = new GpioFactory.MockGPIO(4, 'out');
       const pin5 = new GpioFactory.MockGPIO(5, 'out');
-      GpioFactory.writeMultiplePins(0, pin1, pin2, pin3, pin4, pin5);
+      GpioFactory.writeSyncMultiplePins(0, pin1, pin2, pin3, pin4, pin5);
       let count = 0;
       count += await pin1.read();
       count += await pin2.read();
       count += await pin3.read();
       count += await pin4.read();
       count += await pin5.read();
-      GpioFactory.writeMultiplePins(1, pin1, pin2, pin3, pin4, pin5);
+      GpioFactory.writeSyncMultiplePins(1, pin1, pin2, pin3, pin4, pin5);
       count += await pin1.read();
       count += await pin2.read();
       count += await pin3.read();
