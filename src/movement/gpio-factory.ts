@@ -116,7 +116,6 @@ export class MockGPIO implements Gpio {
 
 export function create(): Gpio | any {
   try {
-    const Gpio = require('onoff').Gpio;
     if (Gpio.accessible) {
       return Gpio;
     } else {
