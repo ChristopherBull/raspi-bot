@@ -2,7 +2,7 @@ import CommunicationManager = require('../communication-manager');
 import net = require('net');
 
 const HOSTNAME = 'localhost';
-const PORT_TCP = 8088;
+const PORT_TCP = 9020;
 
 let server: net.Server | undefined;
 

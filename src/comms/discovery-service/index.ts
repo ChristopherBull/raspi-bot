@@ -5,12 +5,12 @@ import { getStrAsNumberOrDefault } from '../../util/primitives';
 /** Port number for the UDP Discovery service */
 export const PORT_UDP_DISCOVERY: number = getStrAsNumberOrDefault(
   process.env.RPIBOT_DISCOVERY_PORT,
-  8089,
+  9022,
 );
 /** Port number for the TCP response to a successful UDP Discovery */
 export const PORT_TCP_RESPONSE = getStrAsNumberOrDefault(
   process.env.RPIBOT_RESPONSE_PORT,
-  8090,
+  9023,
 );
 export const MSG_DISCOVER_ADDR = 'DISCOVER_RPIBOT_ADDR';
 
