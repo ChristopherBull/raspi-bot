@@ -3,5 +3,7 @@
         "typescript",
         "javascript",
         "markdown"
-    ]
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.pydocstyleEnabled": true
 }
