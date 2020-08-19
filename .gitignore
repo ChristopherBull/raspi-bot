@@ -7,6 +7,8 @@ src/vision/image.annotated.png
 # OpenCV helper scripts
 models/tf_text_graph_common.py
 models/tf_text_graph_ssd.py
+# Ignore additional models (models can be tried without polluting Git)
+models/*/
 
 # Logs
 logs
