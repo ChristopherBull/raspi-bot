@@ -1,8 +1,12 @@
 # Project-specific files
+# Test images
 src/vision/image.jpg
 src/vision/image.png
 src/vision/image.annotated.jpg
 src/vision/image.annotated.png
+# OpenCV helper scripts
+models/tf_text_graph_common.py
+models/tf_text_graph_ssd.py
 
 # Logs
 logs

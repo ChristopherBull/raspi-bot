@@ -8,9 +8,17 @@
     "words": [
         // Packages, libraries, technologies
         "bluetooth",
+        "color", // Common Americanised spelling in libraries
         "comms", // Short-hand for "Communications"
+        "imread", // OpenCV method name
+        "imshow", // OpenCV method name
+        "imwrite", // OpenCV method name
+        "lite", // Common in AI/ML model names
         "multiline", // ESLint
+        "pbtxt", // File extension: TensorFlow Graph Text
         "RPiBot", // Project synonym
+        "ssdlite", // TensorFlow model names 
+        "timeit", // Python module
         "unexport", // onoff package
         // Missing correct English words
         "cleanup",
