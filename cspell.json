@@ -15,7 +15,9 @@
         "imwrite", // OpenCV method name
         "lite", // Common in AI/ML model names
         "multiline", // ESLint
+        "OpenCV's",
         "pbtxt", // File extension: TensorFlow Graph Text
+        "realpath", // Pyhton: os.path.realpath()
         "RPiBot", // Project synonym
         "ssdlite", // TensorFlow model names 
         "timeit", // Python module
@@ -30,5 +32,11 @@
     // This is useful for offensive words and common spelling errors.
     "flagWords": [],
     // ignorePaths - a list of globs to specify which files are to be ignored.
-    "ignorePaths": ["**/node_modules/**", "./*.json"]
+    "ignorePaths": [
+        "**/node_modules/**",
+        "./*.json",
+        // TensorFlow graph config generator files, used when generating/adding
+        // a new model (also ignored in .gitignore).
+        "./models/tf_text_graph*.py"
+    ]
 }
