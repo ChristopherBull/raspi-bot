@@ -6,13 +6,12 @@ This directory contains the ML/AI models.
 
 When adding an object detection model, ensure you have the following files:
 
-- \_\_init\_\_.py
-- config.py
-- config.pbtxt
-- frozen_inference_graph.pb
+- `__init__.py`
+- `config.py`
+- `config.pbtxt`
+- `frozen_inference_graph.pb`
 
-Information on using object detection TensorFlow models with OpenCV, links to some pre-trained models (and generating a `.pbtxt` config file) can be found here:
-[https://github.com/opencv/opencv/wiki/TensorFlow-Object-Detection-API]
+Information on using object detection TensorFlow models with OpenCV, links to some pre-trained models (and generating a `.pbtxt` config file) can be found at [OpenCV's wiki on the TensorFlow Object Detection API](https://github.com/opencv/opencv/wiki/TensorFlow-Object-Detection-API).
 
 `__init__.py` may be empty.
 
