@@ -20,7 +20,7 @@ _Mobility support:_
 
 _Sensory support:_
 
-- [x] [Object detection](src/vision/README.md) (camera + machine learning)
+- [x] [Object detection](src/vision/) (camera + machine learning)
 - [ ] Distance sensing (using HC-SR04)
 
 _Feature support:_

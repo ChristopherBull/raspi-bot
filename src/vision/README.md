@@ -6,7 +6,7 @@ The object detection code uses Neural Networks to identify objects in a given im
 
 The currently used model is [MobileNet V3](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models) (large), an [SSD model (Single Shot object Detection)](https://arxiv.org/abs/1512.02325) trained on the [COCO dataset](https://cocodataset.org/).
 
-The [choice of model is configurable](../../models/README.md) to allow easier integration of future or alternate models, which enables testing and benchmarking of multiple models to determine a best fit for your computational requirements in a resource-constrained environment.
+The [choice of model is configurable](../../models/) to allow easier integration of future or alternate models, which enables testing and benchmarking of multiple models to determine a best fit for your computational requirements in a resource-constrained environment.
 
 ### Testing / Benchmarking Object Detection
 
