@@ -9,6 +9,8 @@ import {
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+const bMockGpio = process.env.NODE_ENV == 'test' ? true : false;
+
 /**
  * Usage:
  * ```javascript
@@ -121,7 +123,7 @@ export class MockGPIO implements Gpio {
  * @returns {Gpio|any} The GPIO type.
  */
 export function create(): Gpio | any {
-  if (Gpio.accessible) {
+  if (Gpio.accessible && !bMockGpio) {
     return Gpio;
   } else {
     console.warn('Using mock Gpio: GPIO inaccessible');
