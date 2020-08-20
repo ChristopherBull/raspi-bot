@@ -15,6 +15,8 @@
     "build:test": "tsc && npm run test",
     "test": "npm run lint && npm run test:coverage",
     "test:py": "python3 -m unittest discover -s test",
+    "test:py:coverage": "coverage run --source=rpi_bot -m unittest discover -s test",
+    "test:py:coverage:report": "npm run test:py:coverage && coverage report && coverage html",
     "test:ci": "npm run lint && cross-env NODE_ENV=test nyc --reporter=lcovonly mocha",
     "test:unit": "cross-env NODE_ENV=test mocha",
     "test:coverage": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha",
