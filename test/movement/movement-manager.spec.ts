@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import MovementManager = require('../../src/movement/movement-manager');
+import MovementManager = require('../../rpi_bot/movement/movement-manager');
 
 describe('Movement Manager', function () {
   it('should set Agent to a DifferentialDrive', async function () {

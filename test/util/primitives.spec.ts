@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { getStrAsNumberOrDefault } from '../../src/util/primitives';
+import { getStrAsNumberOrDefault } from '../../rpi_bot/util/primitives';
 
 describe('Util: Str to Number conversion', function () {
   it('should convert "10" to 10', function () {

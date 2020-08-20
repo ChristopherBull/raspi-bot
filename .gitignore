@@ -1,9 +1,9 @@
 # Project-specific files
 # Test images
-src/vision/image.jpg
-src/vision/image.png
-src/vision/image.annotated.jpg
-src/vision/image.annotated.png
+rpi_bot/vision/image.jpg
+rpi_bot/vision/image.png
+rpi_bot/vision/image.annotated.jpg
+rpi_bot/vision/image.annotated.png
 # OpenCV helper scripts
 models/tf_text_graph_common.py
 models/tf_text_graph_faster_rcnn.py

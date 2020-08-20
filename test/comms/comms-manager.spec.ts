@@ -1,8 +1,8 @@
 import 'mocha';
 import { expect } from 'chai';
-import CommunicationManager = require('../../src/comms/communication-manager');
-import Discovery = require('../../src/comms/discovery-service');
-import TCP = require('../../src/comms/net/tcp-server');
+import CommunicationManager = require('../../rpi_bot/comms/communication-manager');
+import Discovery = require('../../rpi_bot/comms/discovery-service');
+import TCP = require('../../rpi_bot/comms/net/tcp-server');
 
 describe('Communication Manager', function () {
   after(async function () {

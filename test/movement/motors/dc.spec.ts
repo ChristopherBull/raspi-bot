@@ -1,7 +1,7 @@
 import 'mocha';
-import { DCMotor } from '../../../src/movement/motors/dc';
+import { DCMotor } from '../../../rpi_bot/movement/motors/dc';
 import { expect } from 'chai';
-import { MotorMotionType } from '../../../src/movement/movement-manager';
+import { MotorMotionType } from '../../../rpi_bot/movement/movement-manager';
 
 describe('Motor: DC', function () {
   let motor: DCMotor;

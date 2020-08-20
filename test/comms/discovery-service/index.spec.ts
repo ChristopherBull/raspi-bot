@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import Discovery = require('../../../src/comms/discovery-service');
+import Discovery = require('../../../rpi_bot/comms/discovery-service');
 import net = require('net');
 import dgram = require('dgram');
 

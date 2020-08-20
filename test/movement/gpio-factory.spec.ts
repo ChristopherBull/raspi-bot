@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import GpioFactory = require('../../src/movement/gpio-factory');
+import GpioFactory = require('../../rpi_bot/movement/gpio-factory');
 // const Gpio = GpioFactory.create();
 
 describe('GPIO Factory', function () {

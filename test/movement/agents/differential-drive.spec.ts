@@ -1,8 +1,8 @@
 import 'mocha';
-import { DCMotor } from '../../../src/movement/motors/dc';
-import { DifferentialDrive } from '../../../src/movement/agents/differential-drive';
+import { DCMotor } from '../../../rpi_bot/movement/motors/dc';
+import { DifferentialDrive } from '../../../rpi_bot/movement/agents/differential-drive';
 import { expect } from 'chai';
-import { MovementType } from '../../../src/movement/movement-manager';
+import { MovementType } from '../../../rpi_bot/movement/movement-manager';
 
 describe('Movement Agent: DifferentialDrive', function () {
   let diffDrive: DifferentialDrive;
