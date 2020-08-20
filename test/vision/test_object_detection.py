@@ -1,6 +1,6 @@
 """Test Object Detection."""
 import unittest
-import src.vision.object_detection as detection
+import rpi_bot.vision.object_detection as detection
 
 
 class TestObjectDetection(unittest.TestCase):
