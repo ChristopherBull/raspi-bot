@@ -1,7 +1,7 @@
 {
-  "name": "raspi-bot-node",
+  "name": "raspi-bot",
   "version": "1.0.0",
-  "description": "A Raspberry Pi robot, using Nodejs.",
+  "description": "A Raspberry Pi robot.",
   "main": "./dist/index.js",
   "scripts": {
     "spelling": "cspell **/*.ts **/*.py **/*.md",
@@ -14,6 +14,7 @@
     "build": "npm run lint && tsc",
     "build:test": "tsc && npm run test",
     "test": "npm run lint && nyc --reporter=html --reporter=text mocha",
+    "test:py": "python3 -m unittest discover -s test",
     "test:ci": "npm run lint && nyc --reporter=lcovonly mocha",
     "test:unit": "mocha",
     "test:coverage": "nyc --reporter=html --reporter=text mocha",
@@ -22,7 +23,7 @@
     "start:dev": "ts-node ./src/index.ts"
   },
   "engines": {
-    "node": "13.6.x"
+    "node": "14.8.x"
   },
   "repository": {
     "type": "git",
