@@ -78,6 +78,8 @@ export function setAgent(type: AgentType): Agent {
       agent = new DifferentialDrive(
         new DCMotor(-1, -2, -3),
         new DCMotor(-4, -5, -6),
+        // new DCMotor(27, 28, 31), // GPIO pins 17, 27, 22 (respectively)
+        // new DCMotor(33, 35, 37), // GPIO pins 5, 6, 26 (respectively)
       );
       break;
     default:
