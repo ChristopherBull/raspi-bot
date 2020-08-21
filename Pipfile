@@ -1,0 +1,11 @@
+[[source]]
+url = "https://github.com/CaffeinatedAndroid/raspi-bot-node"
+verify_ssl = true
+
+[dev-packages]
+coverage = "*"
+
+[packages]
+
+[requires]
+python_version = "3.7"
