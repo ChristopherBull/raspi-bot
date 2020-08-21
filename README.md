@@ -38,3 +38,19 @@ _Connectivity support:_
 _Control:_
 
 - [ ] [Android app](https://github.com/CaffeinatedAndroid/raspi-bot-app)
+
+## Setup
+
+The NodeJS/TypeScript portion can be initialised using:
+
+```shell
+npm i
+```
+
+The Python portion currently requires manual setup, rather than a virtual environment:
+
+```shell
+pip3 install opencv-python-headless
+```
+
+A python Pipfile (install configuration) is planned, instead of the manual setup. OpenCV runs faster when compiled from source, however this does not seamlessly work with a `Pipfile` or `requirements.txt`. To work around this we can use pre-compiled versions of OpenCV available through `pip`, shown in the above command. Those offer good enough performance.
