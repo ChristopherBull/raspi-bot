@@ -16,3 +16,11 @@ class TestObjectDetection(unittest.TestCase):
         to_append = ".abc123"
         expected = "myFile%s.py" % to_append
         self.assertEqual(detection.append_filename(path, to_append), expected)
+
+    def test_object_detection_defaults(self):
+        """
+        Test object detection with default configuration.
+
+        No exception should be raised.
+        """
+        detection.detect("test/res/test-image-1.jpg")

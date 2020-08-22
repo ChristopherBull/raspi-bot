@@ -82,7 +82,7 @@ def detect(image_path, save_image=False, display_image=False,
     net.setInputSwapRB(net_config.input_swap_RB)
 
     # Input image into network
-    image = cv2.imread(args.image)
+    image = cv2.imread(image_path)
     if benchmark:
         start_NN = timer()
     classes, confidences, boxes = net.detect(image, confThreshold=0.5)
@@ -173,6 +173,7 @@ if __name__ == "__main__":
            args.benchmark or args.benchmark_all_models)
 
     if args.benchmark_all_models:
+        # TODO dynamically load models by iterating over folder
         import models.ssdlite_mobilenet_v2_coco_2018_05_09.config as v2lite
         other_models = [
             v2lite

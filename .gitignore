@@ -4,6 +4,7 @@ rpi_bot/vision/image.jpg
 rpi_bot/vision/image.png
 rpi_bot/vision/image.annotated.jpg
 rpi_bot/vision/image.annotated.png
+test/res/*.annotated.jpg
 # OpenCV helper scripts
 models/tf_text_graph_common.py
 models/tf_text_graph_faster_rcnn.py
