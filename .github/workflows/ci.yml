@@ -46,7 +46,8 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: echo "Coverage already calculated - skipping calculating coverage"
-          coverageLocations: ${{github.workspace}}/coverage/lcov.info:lcov
+          coverageLocations: |
+            ${{github.workspace}}/coverage/typescript/lcov.info:lcov
       # Artifacts
       - name: Upload coverage report artifact
         uses: actions/upload-artifact@v2
