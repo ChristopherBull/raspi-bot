@@ -22,6 +22,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          # Py 3.7 is current default Py3 version on an RPi
+          python-version: 3.7
       - name: Cache Node.js modules
         uses: actions/cache@v2
         with:
@@ -30,8 +35,10 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
-      - name: Install dependencies
+      - name: Install NodeJS dependencies
         run: npm ci
+      - name: Install Python dependencies
+        run: pip3 install coverage flake8 opencv-python-headless
       - name: Build (Transpile TypeScript)
         # Unless code coverage is 100%, tests (using ts-node, a runtime
         # interpretation engine) can not guarantee untouched code is not broken.
@@ -48,6 +55,7 @@ jobs:
           coverageCommand: echo "Coverage already calculated - skipping calculating coverage"
           coverageLocations: |
             ${{github.workspace}}/coverage/typescript/lcov.info:lcov
+            ${{github.workspace}}/coverage/python/.coverage:CoveragePy
       # Artifacts
       - name: Upload coverage report artifact
         uses: actions/upload-artifact@v2
