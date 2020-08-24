@@ -55,7 +55,7 @@ jobs:
           coverageCommand: echo "Coverage already calculated - skipping calculating coverage"
           coverageLocations: |
             ${{github.workspace}}/coverage/typescript/lcov.info:lcov
-            ${{github.workspace}}/coverage/python/.coverage:coverage.py
+            ${{github.workspace}}/coverage/python/coverage.xml:coverage.py
       # Artifacts
       - name: Upload coverage report artifact
         uses: actions/upload-artifact@v2
