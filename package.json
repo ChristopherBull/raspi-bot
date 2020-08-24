@@ -8,7 +8,7 @@
     "spelling:md": "cspell **/*.md",
     "spelling:ts": "cspell **/*.ts",
     "spelling:py": "cspell **/*.py",
-    "lint": "eslint ./rpi_bot ./test README.md --ext .ts,.tsx,.md && flake8",
+    "lint": "eslint ./rpi_bot ./test README.md --ext .ts,.tsx,.md && flake8 --count --statistics",
     "lint:fix": "eslint ./rpi_bot ./test README.md --fix --ext .ts,.tsx,.md",
     "transpile": "tsc",
     "build": "npm run lint && tsc",
