@@ -1,6 +1,7 @@
 import dgram = require('dgram');
 import net = require('net');
 import { getStrAsNumberOrDefault } from '../../util/primitives';
+import Logger from '../../util/logging';
 
 /** Port number for the UDP Discovery service */
 export const PORT_UDP_DISCOVERY: number = getStrAsNumberOrDefault(
@@ -24,12 +25,12 @@ let server: dgram.Socket | undefined;
 export async function disable(): Promise<void> {
   return new Promise((resolve) => {
     if (server === undefined) {
-      console.debug('UDP Discovery - Disabled (was not running)');
+      Logger.verbose('UDP Discovery - Disabled (was not running)');
       resolve();
     } else {
       server.close(() => {
         server = undefined;
-        console.debug('UDP Discovery - Disabled');
+        Logger.verbose('UDP Discovery - Disabled');
         resolve();
       });
     }
@@ -52,19 +53,24 @@ export function enable(): void {
     // On udp message received
     server.on('message', (message, rinfo) => {
       if (message.toString() === MSG_DISCOVER_ADDR) {
-        console.log('UDP Discovery - Discovered (' + rinfo.address + ')');
+        Logger.log(
+          'info',
+          'UDP Discovery - Discovered (' + rinfo.address + ')',
+        );
         // Respond to Discovery enquiry through a TCP socket
         const client = new net.Socket();
         client.on('error', (err: Error) => {
-          console.error(err);
-          console.debug('UDP Discovery - Cleaning up after error');
+          Logger.error(err);
+          Logger.verbose('UDP Discovery - Cleaning up after error');
           client.destroy();
           disable();
         });
         client.connect(PORT_TCP_RESPONSE, rinfo.address, () => {
           // No need to send message, just connect, as the connection meta data
           // (remote IP address) will be used to setup a new connection
-          console.debug('UDP Discovery - Connected to requester and IP shared');
+          Logger.verbose(
+            'UDP Discovery - Connected to requester and IP shared',
+          );
           // Cleanup after connection
           client.destroy();
           disable();
@@ -76,7 +82,8 @@ export function enable(): void {
     server.on('listening', () => {
       // Debug output - IP and port
       const address = server?.address();
-      console.log(
+      Logger.log(
+        'info',
         'UDP Discovery - Enabled - ' + address?.address + ':' + address?.port,
       );
     });

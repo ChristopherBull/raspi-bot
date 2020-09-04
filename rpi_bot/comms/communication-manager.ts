@@ -1,5 +1,6 @@
 import Discovery = require('./discovery-service');
 import TCP = require('./net/tcp-server');
+import Logger from '../util/logging';
 
 // enum MessageType {
 //   // System
@@ -40,7 +41,7 @@ export enum CommunicationType {
  * @returns {Promise<void>}
  */
 async function startTCPServer(): Promise<void> {
-  console.debug('TCP Server - starting');
+  Logger.verbose('TCP Server - starting');
   return TCP.start();
 }
 
@@ -50,7 +51,7 @@ async function startTCPServer(): Promise<void> {
  * @returns {Promise<void>}
  */
 async function stopTCPServer(): Promise<void> {
-  console.debug('TCP Server - stopping');
+  Logger.verbose('TCP Server - stopping');
   return TCP.close();
 }
 
@@ -58,7 +59,7 @@ async function stopTCPServer(): Promise<void> {
  * Starts the UDP server.
  */
 function startUDPServer(): void {
-  console.debug('UDP Server - starting');
+  Logger.verbose('UDP Server - starting');
   return;
 }
 
@@ -66,7 +67,7 @@ function startUDPServer(): void {
  * Stops the UDP server.
  */
 function stopUDPServer(): void {
-  console.debug('UDP Server - stopping');
+  Logger.verbose('UDP Server - stopping');
   return;
 }
 
@@ -103,7 +104,7 @@ export async function stopDiscoveryService(): Promise<void> {
 export async function startServer(type: CommunicationType): Promise<void> {
   switch (type) {
     case CommunicationType.All:
-      console.debug('Comms: Listening for connection on all channels');
+      Logger.verbose('Comms: Listening for connection on all channels');
       await startTCPServer();
       startUDPServer();
       break;

@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import Discovery = require('../../../rpi_bot/comms/discovery-service');
 import net = require('net');
 import dgram = require('dgram');
+import Logger from '../../../rpi_bot/util/logging';
 
 describe('Discovery Service', function () {
   beforeEach(async function () {
@@ -49,7 +50,7 @@ describe('Discovery Service', function () {
     // response to the UDP broadcast.
     const server = new net.Server();
     server.on('error', (err: Error) => {
-      console.error(err);
+      Logger.error(err);
     });
     // Close the TCP server after no connection for predefined seconds
     const iTimeout = 1000;
@@ -60,7 +61,7 @@ describe('Discovery Service', function () {
     // Get client IP address from connection
     server.on('connection', (socket) => {
       expect(socket).to.not.be.null;
-      console.debug('Connection from: ' + socket.remoteAddress);
+      Logger.debug('Connection from: ' + socket.remoteAddress);
       clearTimeout(timeoutObj);
       server.close();
       done();
@@ -77,7 +78,7 @@ describe('Discovery Service', function () {
       message.length,
       Discovery.PORT_UDP_DISCOVERY,
       (error: Error | null) => {
-        if (error) console.error(error);
+        if (error) Logger.error(error);
         // Cleanup after send
         client.close();
       },

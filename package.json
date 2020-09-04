@@ -17,6 +17,8 @@
     "test:py": "python3 -m unittest discover -s test",
     "test:py:coverage": "coverage run --source=rpi_bot -m unittest discover -s test && coverage report && coverage html && coverage xml",
     "test:ts:coverage": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text --reporter=lcovonly mocha",
+    "test:ts:coverage:debug": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text --reporter=lcovonly mocha -d",
+    "test:ts:coverage:verbose": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text --reporter=lcovonly mocha --verbose",
     "test:ci": "npm run lint && npm run test:py:coverage && npm run test:ts:coverage",
     "test:unit": "cross-env NODE_ENV=test mocha",
     "test:coverage": "npm run test:py:coverage && npm run test:ts:coverage",
@@ -68,6 +70,7 @@
     "typescript": "~4.0.2"
   },
   "dependencies": {
-    "onoff": "6.0.0"
+    "onoff": "6.0.0",
+    "winston": "^3.3.3"
   }
 }

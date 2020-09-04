@@ -1,5 +1,6 @@
 import CommunicationManager = require('../communication-manager');
 import net = require('net');
+import Logger from '../../util/logging';
 
 const HOSTNAME = 'localhost';
 const PORT_TCP = 9020;
@@ -14,12 +15,12 @@ let server: net.Server | undefined;
 export async function close(): Promise<void> {
   return new Promise((resolve) => {
     if (server === undefined) {
-      console.debug('TCP Server - Closed (already)');
+      Logger.verbose('TCP Server - Closed (already)');
       resolve();
     } else {
       server.close(() => {
         server = undefined;
-        console.debug('TCP Server - Closed');
+        Logger.verbose('TCP Server - Closed');
         resolve();
       });
     }
@@ -38,19 +39,19 @@ export async function start(): Promise<void> {
         // On client connection
 
         socket.on('error', (err: Error) => {
-          console.error(err);
+          Logger.error(err);
           socket.destroy();
         });
 
         // socket.on('close', (hadError: boolean) => {});
 
         socket.on('data', (data: Buffer) => {
-          console.debug(`TCP: ${data}`);
+          Logger.debug(`TCP: ${data}`);
         });
       });
 
       server.on('error', (err: Error) => {
-        console.error(err);
+        Logger.error(err);
         // Cleanup
         close();
         // Restart the Discovery Service
@@ -58,7 +59,7 @@ export async function start(): Promise<void> {
       });
 
       server.listen(PORT_TCP, HOSTNAME, () => {
-        console.debug(`TCP: server listening on ${HOSTNAME}:${PORT_TCP}`);
+        Logger.verbose(`TCP: server listening on ${HOSTNAME}:${PORT_TCP}`);
         resolve();
       });
     } else {

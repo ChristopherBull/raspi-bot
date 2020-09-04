@@ -1,4 +1,5 @@
 import { Agent, Motor, MovementType } from '../movement-manager';
+import Logger from '../../util/logging';
 
 /**
  * A two-wheeled robot.
@@ -48,7 +49,7 @@ export class DifferentialDrive implements Agent {
         this.rightMotor.counterClockwise();
         break;
       default:
-        console.warn(`MovementType ${type} not supported on this Agent`);
+        Logger.warn(`MovementType ${type} not supported on this Agent`);
         break;
     }
   }

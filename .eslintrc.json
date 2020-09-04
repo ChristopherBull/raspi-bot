@@ -12,7 +12,14 @@
     "plugin:mocha/recommended",
     "plugin:chai-expect/recommended"
   ],
-  "plugins": ["@typescript-eslint", "jsdoc", "prettier", "markdown", "mocha", "chai-expect"],
+  "plugins": [
+    "@typescript-eslint",
+    "jsdoc",
+    "prettier",
+    "markdown",
+    "mocha",
+    "chai-expect"
+  ],
   "rules": {
     "sort-imports": [
       1,
@@ -23,6 +30,7 @@
         "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
       }
     ],
+    "no-console": [1, {}],
     "no-warning-comments": [
       1,
       { "terms": ["todo", "fixme", "xxx"], "location": "start" }

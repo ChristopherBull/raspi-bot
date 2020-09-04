@@ -6,6 +6,7 @@ import {
   Options,
   ValueCallback,
 } from 'onoff';
+import Logger from '../util/logging';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -76,7 +77,7 @@ export class MockGPIO implements Gpio {
   }
 
   writeSync(value: BinaryValue): void {
-    console.debug(`GpioMock - Pin: ${this._gpio}, Value: ${value}`);
+    Logger.debug(`GpioMock - Pin: ${this._gpio}, Value: ${value}`);
     this._value = value;
   }
 
@@ -126,7 +127,7 @@ export function create(): Gpio | any {
   if (Gpio.accessible && !bMockGpio) {
     return Gpio;
   } else {
-    console.warn('Using mock Gpio: GPIO inaccessible');
+    Logger.warn('Using mock Gpio: GPIO inaccessible');
     return MockGPIO;
   }
 }
