@@ -1,15 +1,15 @@
 # Models
 
-This directory contains the ML/AI models.
+This directory contains the configuration for ML/AI models.
 
 ## Object Detection TensorFlow Models
 
 When adding an object detection model, ensure you have the following files:
 
-- `__init__.py`
-- `config.py`
-- `config.pbtxt`
-- `frozen_inference_graph.pb`
+- `rpi_bot/vision/models/<model_name>/__init__.py`
+- `rpi_bot/vision/models/<model_name>/config.py`
+- `res/models/<model_name>/config.pbtxt`
+- `res/models/<model_name>/frozen_inference_graph.pb`
 
 Information on using object detection TensorFlow models with OpenCV, links to some pre-trained models (and generating a `.pbtxt` config file) can be found at [OpenCV's wiki on the TensorFlow Object Detection API](https://github.com/opencv/opencv/wiki/TensorFlow-Object-Detection-API).
 
@@ -18,7 +18,7 @@ Information on using object detection TensorFlow models with OpenCV, links to so
 `config.py` should contain:
 
 ```python
-from models.net_config_manager import NeuralNetworkConfig
+from rpi_bot.vision.models.net_config_manager import NeuralNetworkConfig
 import os
 
 config = NeuralNetworkConfig()

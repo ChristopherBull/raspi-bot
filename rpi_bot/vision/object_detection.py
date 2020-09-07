@@ -13,9 +13,13 @@ from importlib import import_module
 from timeit import default_timer as timer
 
 # Add models to the PATH
-models_path = os.path.dirname(os.path.abspath(__file__)) + "/../.."
-sys.path.append(models_path)
-models = import_module('models')
+# Allows this script to be run standalone or as part of the wiser project
+if __name__ == "__main__":
+    proj_root_path = os.path.dirname(os.path.abspath(__file__)) + "/../../"
+    sys.path.append(proj_root_path)
+else:
+    proj_root_path = './'
+vision_models = import_module('rpi_bot.vision.models')
 
 # Labels for pre-trained models based on COCO
 COCO_labels = {0: 'background',
@@ -44,7 +48,7 @@ COCO_labels = {0: 'background',
 
 def detect(image_path, save_image=False, display_image=False,
            benchmark=False,
-           net_config=models.default_object_detection_config):
+           net_config=vision_models.default_object_detection_config):
     """Detect objects in a given image.
 
     Loads an image into a Neural Network for object detection.
@@ -69,8 +73,11 @@ def detect(image_path, save_image=False, display_image=False,
         start = timer()
 
     # Loading model
-    model = 'models/%s/frozen_inference_graph.pb' % net_config.model_dirname
-    config = 'models/%s/config.pbtxt' % net_config.model_dirname
+    model_dir = net_config.model_dirname
+    model = '{}res/models/{}/frozen_inference_graph.pb'.format(
+        proj_root_path, model_dir)
+    config = '{}res/models/{}/config.pbtxt'.format(
+        proj_root_path, model_dir)
     net = cv2.dnn_DetectionModel(model, config)
 
     # Configure network

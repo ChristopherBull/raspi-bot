@@ -6,7 +6,7 @@ ssd_mobilenet_v3_large_coco_2020_01_14
 
 This model requires images to be normalised before processing.
 """
-from models.net_config_manager import NeuralNetworkConfig
+from rpi_bot.vision.models.net_config_manager import NeuralNetworkConfig
 import os
 
 config = NeuralNetworkConfig()
