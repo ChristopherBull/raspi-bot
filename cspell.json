@@ -5,6 +5,22 @@
     // language - current active spelling language
     "language": "en-GB",
     // words - list of words to be always considered correct
+    "dictionaries": [
+        "en-gb",
+        "softwareTerms",
+        "node",
+        "npm",
+        "typescript", // inc. JS
+        "python"
+    ],
+    "enabledLanguageIds": [
+        "markdown",
+        "plaintext",
+        "text",
+        "yml",
+        "javascript",
+        "python"
+    ],
     "words": [
         // Packages, libraries, technologies
         "bluetooth",
@@ -22,6 +38,7 @@
         "ssdlite", // TensorFlow model names 
         "timeit", // Python module
         "unexport", // onoff package
+        "Pipfile", // Python
         // Missing correct English words
         "cleanup",
         "discoverability",
