@@ -28,7 +28,7 @@
     "start:mock": "cross-env NODE_ENV=test ts-node ./rpi_bot/index.ts"
   },
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "repository": {
     "type": "git",
